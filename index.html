@@ -1,411 +1,355 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Snp Dual Cream</title>
-    <style>
-        /* CSS resets and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Snp Dual Cream</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-        :root {
-            --bg-gradient: radial-gradient(circle at 50% 0%, #fef2f2 0%, #fdf4ff 50%, #f0f9ff 100%);
-            --primary-gradient: linear-gradient(135deg, #d946ef, #ec4899, #06b6d4);
-            --glass-bg: rgba(255, 255, 255, 0.4);
-            --glass-border: rgba(255, 255, 255, 0.7);
-            --text-color: #334155;
-            --safe-area-top: env(safe-area-inset-top, 20px);
-            --safe-area-bottom: env(safe-area-inset-bottom, 20px);
-        }
+    :root {
+      --bg-gradient: radial-gradient(circle at 50% 0%, #fef2f2 0%, #fdf4ff 50%, #f0f9ff 100%);
+      --primary-gradient: linear-gradient(135deg, #d946ef, #ec4899, #06b6d4);
+      --text-color: #334155;
+      --safe-area-top: env(safe-area-inset-top, 20px);
+      --safe-area-bottom: env(safe-area-inset-bottom, 20px);
+    }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: #f8fafc;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            color: var(--text-color);
-        }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: var(--text-color);
+    }
 
-        /* Mobile Frame for PC */
-        .mobile-container {
-            width: 100%;
-            max-width: 430px;
-            height: 100vh;
-            background: var(--bg-gradient);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            padding: calc(var(--safe-area-top) + 40px) 24px calc(var(--safe-area-bottom) + 40px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            text-align: center;
-        }
+    .mobile-container {
+      width: 100%;
+      max-width: 430px;
+      min-height: 100vh;
+      background: var(--bg-gradient);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: calc(var(--safe-area-top) + 24px) 20px calc(var(--safe-area-bottom) + 28px);
+      overflow: hidden;
+      text-align: center;
+    }
 
-        .mobile-container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
+    .header-section {
+      width: 100%;
+      z-index: 10;
+      margin-bottom: 18px;
+    }
 
-        @media (min-width: 450px) {
-            .mobile-container {
-                height: 90vh;
-                border-radius: 48px;
-                border: 12px solid #1e293b;
-            }
-        }
+    .question {
+      font-size: clamp(1.9rem, 8vw, 2.5rem);
+      font-weight: 900;
+      line-height: 1.28;
+      letter-spacing: -0.03em;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+      transition: opacity 0.35s ease;
+      background: linear-gradient(to bottom, #1e293b, #475569);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        /* Typography */
-        .header-section {
-            width: 100%;
-            z-index: 10;
-        }
+    .product-container {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+      margin: 8px 0 22px;
+      min-height: 280px;
+    }
 
-        .question {
-            font-size: clamp(1.5rem, 7vw, 2.4rem);
-            font-weight: 900;
-            line-height: 1.3;
-            letter-spacing: -0.03em;
-            word-break: keep-all;
-            overflow-wrap: break-word;
-            opacity: 1;
-            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            background: linear-gradient(to bottom, #1e293b, #475569);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.5));
-        }
+    .glow-effect {
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      background: radial-gradient(circle, rgba(236, 72, 153, 0.22) 0%, rgba(6, 182, 212, 0.14) 45%, transparent 72%);
+      filter: blur(30px);
+      z-index: 1;
+      opacity: 0.7;
+      animation: pulse 4s ease-in-out infinite;
+      pointer-events: none;
+    }
 
-        /* Product Image */
-        .product-container {
-            position: relative;
-            width: 100%;
-            max-width: 340px;
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 5;
-            margin: 30px 0;
-        }
+    .product-image {
+      position: relative;
+      display: block;
+      width: min(72vw, 240px);
+      max-width: 240px;
+      min-width: 170px;
+      height: auto;
+      max-height: 30vh;
+      object-fit: contain;
+      margin: 0 auto;
+      filter: drop-shadow(0 18px 36px rgba(236, 72, 153, 0.18));
+      animation: float 6s ease-in-out infinite;
+      z-index: 2;
+    }
 
-        .product-image {
-            display: block;
-            width: min(88vw, 320px);
-            max-width: 100%;
-            height: auto;
-            max-height: 42vh;
-            object-fit: contain;
-            margin: 0 auto;
-            filter: drop-shadow(0 30px 60px rgba(236, 72, 153, 0.2));
-            animation: float 6s ease-in-out infinite;
-            z-index: 2;
-        }
+    .button-area {
+      width: 100%;
+      max-width: 340px;
+      height: 170px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      z-index: 20;
+      margin-top: auto;
+    }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
-        }
+    .btn {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.2);
+      user-select: none;
+      touch-action: manipulation;
+      letter-spacing: 0.04em;
+    }
 
-        .glow-effect {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, rgba(6, 182, 212, 0.2) 40%, transparent 70%);
-            filter: blur(40px);
-            z-index: 1;
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 0.6;
-            animation: pulse 4s ease-in-out infinite;
-        }
+    .btn-buy {
+      padding: 16px 42px;
+      min-width: 140px;
+      font-size: 1.15rem;
+      color: white;
+      background: var(--primary-gradient);
+      border-radius: 999px;
+      box-shadow:
+        0 10px 25px rgba(236, 72, 153, 0.26),
+        inset 0 -4px 10px rgba(0,0,0,0.08),
+        inset 0 4px 10px rgba(255,255,255,0.35);
+      position: relative;
+      z-index: 30;
+    }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.6; }
-            50% { transform: scale(1.2); opacity: 0.4; }
-        }
+    .btn-no {
+      position: relative;
+      padding: 16px 42px;
+      min-width: 140px;
+      font-size: 1.15rem;
+      color: #475569;
+      background: rgba(255,255,255,0.86);
+      border: 1px solid #e2e8f0;
+      border-radius: 999px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      z-index: 40;
+    }
 
-        /* Buttons Area */
-        .button-area {
-            width: 100%;
-            height: 240px;
-            position: relative;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            z-index: 20;
-        }
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.28);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 24px;
+    }
 
-        .btn {
-            border: none;
-            outline: none;
-            cursor: pointer;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            user-select: none;
-            touch-action: none;
-            letter-spacing: 0.05em;
-        }
+    .modal-content {
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(255,255,255,0.6);
+      padding: 32px 24px;
+      border-radius: 28px;
+      box-shadow: 0 24px 50px rgba(0,0,0,0.14);
+      text-align: center;
+      max-width: 310px;
+      width: 100%;
+    }
 
-        .btn-buy {
-            padding: 16px 50px;
-            font-size: 1.3rem;
-            color: white;
-            background: var(--primary-gradient);
-            border-radius: 100px;
-            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.3),
-                        inset 0 -5px 10px rgba(0,0,0,0.1),
-                        inset 0 5px 10px rgba(255,255,255,0.4);
-            z-index: 30;
-            position: relative;
-            animation: jelly 4s infinite;
-        }
+    .modal-text {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.45;
+      color: #1e293b;
+      word-break: keep-all;
+    }
 
-        @keyframes jelly {
-            0%, 100% { transform: scale(1); }
-            5% { transform: scale(1.05, 0.95); }
-            10% { transform: scale(0.95, 1.05); }
-            15% { transform: scale(1.02, 0.98); }
-            20% { transform: scale(1); }
-        }
+    .modal-btn {
+      padding: 13px 42px;
+      background: var(--primary-gradient);
+      color: white;
+      border: none;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 1rem;
+      box-shadow: 0 10px 25px rgba(236, 72, 153, 0.25);
+      cursor: pointer;
+    }
 
-        .btn-buy:active {
-            transform: scale(0.92) !important;
-        }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
 
-        .btn-no {
-            position: relative;
-            padding: 16px 50px;
-            font-size: 1.3rem;
-            color: #475569;
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 100px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            z-index: 40;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.14); opacity: 0.45; }
+    }
 
-        /* Modal */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 23, 42, 0.3);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 100;
-            padding: 24px;
-        }
+    @media (max-width: 380px) {
+      .product-image {
+        width: min(68vw, 210px);
+        max-height: 27vh;
+      }
 
-        .modal-content {
-            background: rgba(255, 255, 255, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            padding: 40px 30px;
-            border-radius: 40px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
-            text-align: center;
-            max-width: 320px;
-            width: 100%;
-            animation: modalPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
+      .btn-buy,
+      .btn-no {
+        min-width: 126px;
+        padding: 14px 30px;
+        font-size: 1.05rem;
+      }
 
-        @keyframes modalPop {
-            from { transform: scale(0.7); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .modal-text {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 24px;
-            line-height: 1.4;
-            color: #1e293b;
-            word-break: keep-all;
-        }
-
-        .modal-btn {
-            padding: 14px 50px;
-            background: var(--primary-gradient);
-            color: white;
-            border: none;
-            border-radius: 100px;
-            font-weight: 800;
-            font-size: 1.2rem;
-            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.3);
-            cursor: pointer;
-            transition: transform 0.2s ease;
-        }
-
-        .modal-btn:active {
-            transform: scale(0.95);
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 350px) {
-            .question { font-size: 1.3rem; }
-            .btn-buy { padding: 14px 50px; font-size: 1.3rem; }
-        }
-    </style>
+      .button-area {
+        gap: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
-
-    <div class="mobile-container">
-        <div class="header-section">
-            <h1 id="question" class="question">
-                このデュアルクリーム…<br>本当に買わないの？
-            </h1>
-        </div>
-
-        <div class="product-container">
-            <div id="glow" class="glow-effect"></div>
-            <img id="productImg" src="https://i.ifh.cc/Kx6wFA.jpg" alt="Snp Dual Cream" className="product-image" />
-        </div>
-
-        <div id="buttonArea" class="button-area">
-            <button id="buyBtn" class="btn btn-buy">BUY</button>
-            <button id="noBtn" class="btn btn-no">NO</button>
-        </div>
+  <div class="mobile-container">
+    <div class="header-section">
+      <h1 id="question" class="question">このデュアルクリーム…<br>本当に買わないの？</h1>
     </div>
 
-    <div id="modal" class="modal-overlay">
-        <div class="modal-content">
-            <p class="modal-text">結局BUY😎<br>賢い選択です！</p>
-            <button id="modalBtn" class="modal-btn">OK</button>
-        </div>
+    <div class="product-container">
+      <div id="glow" class="glow-effect"></div>
+      <img id="productImg" src="https://i.ifh.cc/Kx6wFA.jpg" alt="Snp Dual Cream" class="product-image">
     </div>
 
-    <script>
-        const question = document.getElementById('question');
-        const buyBtn = document.getElementById('buyBtn');
-        const noBtn = document.getElementById('noBtn');
-        const buttonArea = document.getElementById('buttonArea');
-        const glow = document.getElementById('glow');
-        const modal = document.getElementById('modal');
-        const modalBtn = document.getElementById('modalBtn');
+    <div id="buttonArea" class="button-area">
+      <button id="buyBtn" class="btn btn-buy">BUY</button>
+      <button id="noBtn" class="btn btn-no">NO</button>
+    </div>
+  </div>
 
-        let escapeCount = 0;
-        let buyScale = 1;
-        const maxEscapes = 5;
-        const redirectUrl = "https://m.qoo10.jp/g/1044939603";
+  <div id="modal" class="modal-overlay">
+    <div class="modal-content">
+      <p class="modal-text">結局BUY😎<br>賢い選択です！</p>
+      <button id="modalBtn" class="modal-btn">OK</button>
+    </div>
+  </div>
 
-        const randomTexts = [
-            "後悔しない自信ある？",
-            "この価格、<br>もう出なくても大丈夫？",
-            "本当に最後の<br>チャンスかも"
-        ];
+  <script>
+    const question = document.getElementById('question');
+    const buyBtn = document.getElementById('buyBtn');
+    const noBtn = document.getElementById('noBtn');
+    const buttonArea = document.getElementById('buttonArea');
+    const glow = document.getElementById('glow');
+    const modal = document.getElementById('modal');
+    const modalBtn = document.getElementById('modalBtn');
 
-        function moveNoButton() {
-            if (escapeCount >= maxEscapes) return;
+    let escapeCount = 0;
+    let buyScale = 1;
+    const maxEscapes = 5;
+    const redirectUrl = "https://m.qoo10.jp/g/1044939603";
 
-            // On first move, switch to absolute positioning
-            if (escapeCount === 0) {
-                noBtn.style.position = 'absolute';
-            }
+    const randomTexts = [
+      "後悔しない自信ある？",
+      "この価格、<br>もう出なくても大丈夫？",
+      "本当に最後の<br>チャンスかも"
+    ];
 
-            const areaRect = buttonArea.getBoundingClientRect();
-            const btnRect = noBtn.getBoundingClientRect();
+    function moveNoButton() {
+      if (escapeCount >= maxEscapes) return;
 
-            // Calculate random position within buttonArea
-            const maxX = areaRect.width - btnRect.width;
-            const maxY = areaRect.height - btnRect.height;
+      if (escapeCount === 0) {
+        noBtn.style.position = 'absolute';
+      }
 
-            const randomX = Math.random() * maxX;
-            const randomY = Math.random() * maxY;
+      const areaRect = buttonArea.getBoundingClientRect();
+      const btnRect = noBtn.getBoundingClientRect();
 
-            // Add a small delay for the "prank" feel
-            setTimeout(() => {
-                noBtn.style.left = `${randomX}px`;
-                noBtn.style.top = `${randomY}px`;
+      const maxX = Math.max(0, areaRect.width - btnRect.width);
+      const maxY = Math.max(0, areaRect.height - btnRect.height);
 
-                escapeCount++;
-                
-                // Grow BUY button
-                buyScale += 0.2;
-                // Limit max scale to prevent covering screen
-                const currentScale = Math.min(buyScale, 2.2);
-                buyBtn.style.transform = `scale(${currentScale})`;
-                buyBtn.style.fontSize = `${1.3 * currentScale}rem`;
-                buyBtn.style.padding = `${16 * currentScale}px ${50 * currentScale}px`;
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
 
-                // Change text randomly after 3 escapes
-                if (escapeCount >= 3) {
-                    const randomText = randomTexts[Math.floor(Math.random() * randomTexts.length)];
-                    question.style.opacity = 0;
-                    setTimeout(() => {
-                        question.innerHTML = randomText;
-                        question.style.opacity = 1;
-                    }, 300);
-                }
+      setTimeout(() => {
+        noBtn.style.left = `${randomX}px`;
+        noBtn.style.top = `${randomY}px`;
 
-                // Final escape logic
-                if (escapeCount >= maxEscapes) {
-                    noBtn.style.transition = 'opacity 0.5s ease';
-                    noBtn.style.opacity = '0';
-                    noBtn.style.pointerEvents = 'none';
-                    
-                    // Center and enlarge BUY button
-                    setTimeout(() => {
-                        noBtn.style.display = 'none';
-                        buyBtn.style.transform = `scale(${Math.min(buyScale + 0.3, 2)})`;
-                        glow.style.transform = 'scale(2)';
-                        glow.style.opacity = '0.9';
-                    }, 300);
-                }
-            }, 150);
+        escapeCount++;
+
+        buyScale += 0.08;
+        const currentScale = Math.min(buyScale, 1.45);
+        buyBtn.style.transform = `scale(${currentScale})`;
+
+        if (escapeCount >= 3) {
+          const randomText = randomTexts[Math.floor(Math.random() * randomTexts.length)];
+          question.style.opacity = '0';
+          setTimeout(() => {
+            question.innerHTML = randomText;
+            question.style.opacity = '1';
+          }, 180);
         }
 
-        // Event listeners for NO button
-        noBtn.addEventListener('pointermove', (e) => {
-            if (e.pointerType === 'mouse') moveNoButton();
-        });
-        noBtn.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            moveNoButton();
-        });
+        if (escapeCount >= maxEscapes) {
+          noBtn.style.transition = 'opacity 0.4s ease';
+          noBtn.style.opacity = '0';
+          noBtn.style.pointerEvents = 'none';
 
-        // BUY button click
-        buyBtn.addEventListener('click', () => {
-            modal.style.display = 'flex';
-        });
+          setTimeout(() => {
+            noBtn.style.display = 'none';
+            buyBtn.style.transform = 'scale(1.6)';
+            glow.style.transform = 'scale(1.45)';
+            glow.style.opacity = '0.95';
+          }, 280);
+        }
+      }, 140);
+    }
 
-        // Modal button click
-        modalBtn.addEventListener('click', () => {
-            window.location.href = redirectUrl;
-        });
+    noBtn.addEventListener('pointermove', (e) => {
+      if (e.pointerType === 'mouse') moveNoButton();
+    });
 
-        // Auto redirect after some time in modal or click overlay
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                window.location.href = redirectUrl;
-            }
-        });
-    </script>
+    noBtn.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      moveNoButton();
+    }, { passive: false });
+
+    buyBtn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+    });
+
+    modalBtn.addEventListener('click', () => {
+      window.location.href = redirectUrl;
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        window.location.href = redirectUrl;
+      }
+    });
+  </script>
 </body>
 </html>
 
