@@ -106,10 +106,13 @@
         }
 
         .product-image {
-            width: 100%;
+            display: block;
+            width: min(88vw, 320px);
+            max-width: 100%;
             height: auto;
-            max-height: 40vh;
+            max-height: 42vh;
             object-fit: contain;
+            margin: 0 auto;
             filter: drop-shadow(0 30px 60px rgba(236, 72, 153, 0.2));
             animation: float 6s ease-in-out infinite;
             z-index: 2;
